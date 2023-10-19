@@ -1,22 +1,59 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+#main-thing {
+  display: flex;
+  justify-content: space-between;
+  width: 600px;
+}
+
 #container {
   display: flex;
   color: blue;
-  background-color: purple;
+  background-color: rgb(58, 64, 90);
   flex-wrap: wrap;
-  width: 99vw;
-  height: 99vh;
+  width: 500px;
+  height: 500px;
   padding: 2px;
 }
 
-div {
-  background-color: white;
+.color-box {
+  background-color: #ffffff;
   border: 1px solid black;
-  width: 6.25%;
-  height: 6.1vh;
   box-sizing: border-box;
   transition: background-color 0.5s ease-out;
 }
 
-div:hover {
-  background-color: rgb(82, 82, 172);
+#buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100px;
+}
+
+button {
+  border: 0;
+  padding: 8px 15px;
+  background-color: rgb(104, 80, 68);
+  color: white;
+  transition: background-color 0.5s;
+  margin: 5px 5px;
+}
+
+button:hover {
+  background-color: #374B4A;
+}
+
+span {
+  display: flex;
 }
