@@ -2,6 +2,10 @@ const mainPage = document.getElementById("container");
 
 let color = "rgb(89, 165, 216)";
 
+let isMousePressed;
+document.addEventListener("mousedown", function() {isMousePressed = true;});
+document.addEventListener("mouseup", function() {isMousePressed = false;})
+
 //color squares
 let numDivs = 0;
 
@@ -13,8 +17,11 @@ function addDivs(num) {
     const div = document.createElement("div");
     div.className = "color-box";
     div.style.borderWidth = "0px";
-    div.addEventListener("mouseover", function() {
+    div.addEventListener("mousedown", function() {
       div.style.backgroundColor = color;
+    });
+    div.addEventListener("mouseover", function() {
+      if (isMousePressed) div.style.backgroundColor = color;
     });
 
     let percentage = 100/Math.sqrt(numDivs);
@@ -47,6 +54,7 @@ clearButton.addEventListener("click", function () {
   }
 });
 
+
 //num of squares button
 const numButton = document.createElement("button");
 numButton.textContent = "Change number";
@@ -62,10 +70,17 @@ numButton.addEventListener("click", function () {
   addDivs(userNum * userNum, mainPage);
 });
 
+
 //color button
 const colorButton = document.getElementById("color-button");
 const colorInput = document.getElementById("color-input");
 
 colorButton.addEventListener("click", function () {
   color = colorInput.value;
+});
+colorInput.addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    color = colorInput.value;
+  }
+
 });
